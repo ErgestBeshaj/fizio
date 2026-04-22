@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alpha Fizio — Terapia Fizike Profesionale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   CUSTOMIZE HERE — Change these variables to rebrand the site
+   ============================================================ */
+:root {
+  --brand-name: "Alpha Fizio";
+  --color-primary: #B8102A;      /* Albanian red */
+  --color-primary-dark: #8A0B1E;
+  --color-primary-light: #E8C4CB;
+  --color-gold: #C8982A;
+  --color-gold-light: #F2E4C0;
+  --color-dark: #1C1410;
+  --color-text: #2D231C;
+  --color-muted: #6B5B52;
+  --color-cream: #FAF7F2;
+  --color-cream-dark: #F0EAE1;
+  --color-white: #FFFFFF;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --radius: 4px;
+  --radius-lg: 10px;
+  --shadow: 0 2px 24px rgba(28,20,16,0.08);
+  --shadow-lg: 0 8px 48px rgba(28,20,16,0.14);
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-cream);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+h1,h2,h3,h4 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+  font-weight: 600;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 1.5px;
+  background: var(--color-primary);
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  transition: background 0.3s, box-shadow 0.3s;
+  background: rgba(250,247,242,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+}
+nav.scrolled {
+  border-bottom-color: var(--color-cream-dark);
+  box-shadow: 0 1px 16px rgba(28,20,16,0.07);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: 0.01em;
+}
+.nav-logo span { color: var(--color-dark); }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.nav-links a {
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--color-muted);
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--color-primary); }
+.nav-cta {
+  background: var(--color-primary);
+  color: var(--color-white) !important;
+  padding: 0.55rem 1.3rem;
+  border-radius: 2px;
+  font-size: 0.8rem !important;
+  letter-spacing: 0.08em !important;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--color-primary-dark) !important; }
+.nav-hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+.nav-hamburger span { display: block; width: 24px; height: 1.5px; background: var(--color-dark); transition: 0.3s; }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+  padding-top: 68px;
+}
+.hero-left {
+  background: var(--color-dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem 4rem 5rem 5%;
+  position: relative;
+  overflow: hidden;
+}
+.hero-left::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 60%;
+  background: var(--color-primary);
+  opacity: 0.06;
+  clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+.hero-eagle {
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.04;
+  font-size: 420px;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+.hero-tag {
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hero-tag::before {
+  content: '';
+  display: block;
+  width: 36px;
+  height: 1px;
+  background: var(--color-gold);
+}
+.hero-title {
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  color: var(--color-white);
+  font-weight: 600;
+  line-height: 1.08;
+  margin-bottom: 1.5rem;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--color-primary);
+  display: block;
+}
+.hero-desc {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.55);
+  max-width: 380px;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 0.85rem 2rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  display: inline-block;
+  border-radius: 2px;
+}
+.btn-primary:hover { background: var(--color-primary-dark); transform: translateY(-1px); }
+.btn-outline {
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.7);
+  padding: 0.85rem 2rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+  display: inline-block;
+  border-radius: 2px;
+}
+.btn-outline:hover { border-color: rgba(255,255,255,0.6); color: var(--color-white); }
+.hero-stats {
+  margin-top: 3.5rem;
+  display: flex;
+  gap: 2.5rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 2rem;
+}
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--color-white);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-top: 4px;
+}
+.hero-right {
+  background: var(--color-cream-dark);
+  position: relative;
+  overflow: hidden;
+}
+.hero-img-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #E8DCCF 0%, #D4C4B0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  color: var(--color-muted);
+}
+.hero-img-placeholder .ph-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(184,16,42,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-img-placeholder p {
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  opacity: 0.5;
+}
+.hero-badge {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 2rem;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: var(--shadow-lg);
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.badge-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--color-gold-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+.badge-text strong {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-dark);
+}
+.badge-text span {
+  font-size: 0.7rem;
+  color: var(--color-muted);
+}
+
+/* ============================================================
+   MARQUEE STRIP
+   ============================================================ */
+.marquee-strip {
+  background: var(--color-primary);
+  padding: 0.75rem 0;
+  overflow: hidden;
+}
+.marquee-track {
+  display: flex;
+  gap: 3rem;
+  animation: marquee 28s linear infinite;
+  white-space: nowrap;
+}
+.marquee-track span {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.8);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.marquee-track span::after {
+  content: '◆';
+  font-size: 6px;
+  opacity: 0.5;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+.about {
+  padding: 7rem 0;
+  background: var(--color-white);
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 6rem;
+  align-items: center;
+}
+.about-img {
+  position: relative;
+}
+.about-img-main {
+  width: 100%;
+  aspect-ratio: 4/5;
+  background: var(--color-cream-dark);
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-muted);
+}
+.about-img-main::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(184,16,42,0.08), transparent);
+}
+.about-accent-card {
+  position: absolute;
+  bottom: -1.5rem;
+  right: -1.5rem;
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 1.5rem 1.8rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+}
+.about-accent-card .big { font-family: var(--font-display); font-size: 2.8rem; font-weight: 700; line-height: 1; }
+.about-accent-card .small { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.75; margin-top: 4px; }
+.about-title {
+  font-size: clamp(2rem, 3vw, 3rem);
+  margin-bottom: 1.25rem;
+  color: var(--color-dark);
+}
+.about-body {
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  line-height: 1.85;
+  margin-bottom: 1.25rem;
+}
+.about-credentials {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 2rem 0;
+}
+.cred-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  font-size: 0.88rem;
+  color: var(--color-text);
+}
+.cred-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  margin-top: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   SERVICES
+   ============================================================ */
+.services {
+  padding: 7rem 0;
+  background: var(--color-cream);
+}
+.services-header {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto 4rem;
+}
+.services-header .section-label { justify-content: center; }
+.services-title { font-size: clamp(2rem,3vw,2.8rem); color: var(--color-dark); }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5px;
+  background: var(--color-cream-dark);
+}
+.service-card {
+  background: var(--color-white);
+  padding: 2.5rem 2rem;
+  transition: background 0.3s;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+.service-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-primary);
+  transition: width 0.35s;
+}
+.service-card:hover::after { width: 100%; }
+.service-card:hover { background: var(--color-cream); }
+.service-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--color-gold-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  font-size: 22px;
+}
+.service-name {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: 0.6rem;
+}
+.service-desc {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+.service-price {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* ============================================================
+   PROGRAMS / SUBSCRIPTIONS
+   ============================================================ */
+.programs {
+  padding: 7rem 0;
+  background: var(--color-dark);
+  position: relative;
+  overflow: hidden;
+}
+.programs::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  opacity: 0.04;
+}
+.programs-header {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto 4rem;
+}
+.programs-header .section-label {
+  justify-content: center;
+  color: var(--color-gold);
+}
+.programs-header .section-label::before { background: var(--color-gold); }
+.programs-header h2 {
+  font-size: clamp(2rem,3vw,2.8rem);
+  color: var(--color-white);
+}
+.programs-header p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.45);
+  margin-top: 0.75rem;
+}
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.plan-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  transition: border-color 0.3s, transform 0.3s;
+  position: relative;
+}
+.plan-card:hover {
+  border-color: rgba(255,255,255,0.15);
+  transform: translateY(-4px);
+}
+.plan-card.featured {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.plan-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-gold);
+  color: var(--color-dark);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: 20px;
+}
+.plan-name {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: 0.4rem;
+}
+.plan-desc {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 1.8rem;
+}
+.plan-price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 0.3rem;
+}
+.plan-price .amount {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 1;
+}
+.plan-price .currency { font-size: 1.2rem; color: rgba(255,255,255,0.6); }
+.plan-price .period { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+.plan-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.1);
+  margin: 1.5rem 0;
+}
+.plan-features li {
+  font-size: 0.84rem;
+  color: rgba(255,255,255,0.7);
+  padding: 0.45rem 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+}
+.plan-card.featured .plan-features li { color: rgba(255,255,255,0.9); }
+.feat-check {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+  font-size: 9px;
+  color: var(--color-white);
+}
+.plan-card.featured .feat-check { background: rgba(255,255,255,0.25); }
+.plan-btn {
+  display: block;
+  width: 100%;
+  padding: 0.85rem;
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.8);
+  background: transparent;
+}
+.plan-btn:hover { background: rgba(255,255,255,0.08); }
+.plan-card.featured .plan-btn {
+  background: var(--color-white);
+  color: var(--color-primary);
+  border-color: var(--color-white);
+  font-weight: 600;
+}
+.plan-card.featured .plan-btn:hover { background: rgba(255,255,255,0.9); }
+
+/* ============================================================
+   ADVICE / BLOG SECTION
+   ============================================================ */
+.advice {
+  padding: 7rem 0;
+  background: var(--color-white);
+}
+.advice-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.advice-header h2 { font-size: clamp(1.8rem,3vw,2.6rem); color: var(--color-dark); }
+.view-all-link {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.2s;
+}
+.view-all-link:hover { gap: 14px; }
+.articles-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+}
+.article-card {
+  border: 1px solid var(--color-cream-dark);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.article-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.article-thumb {
+  aspect-ratio: 16/9;
+  background: var(--color-cream-dark);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-muted);
+  font-size: 0.75rem;
+}
+.article-thumb.red-bg { background: var(--color-primary-light); }
+.article-thumb.gold-bg { background: var(--color-gold-light); }
+.article-category {
+  position: absolute;
+  top: 12px; left: 12px;
+  background: var(--color-white);
+  color: var(--color-primary);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.article-body { padding: 1.4rem 1.5rem; }
+.article-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+.article-excerpt {
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+.article-meta {
+  font-size: 0.72rem;
+  color: var(--color-muted);
+  display: flex;
+  gap: 1rem;
+  border-top: 1px solid var(--color-cream-dark);
+  padding-top: 0.9rem;
+}
+
+/* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+.testimonials {
+  padding: 7rem 0;
+  background: var(--color-cream);
+}
+.testimonials-header {
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto 4rem;
+}
+.testimonials-header .section-label { justify-content: center; }
+.testimonials-header h2 { font-size: clamp(1.8rem,3vw,2.6rem); color: var(--color-dark); }
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.testi-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.8rem;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+.testi-card::before {
+  content: '\201C';
+  position: absolute;
+  top: 1rem; right: 1.5rem;
+  font-family: var(--font-display);
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--color-primary-light);
+  font-weight: 700;
+}
+.testi-stars {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 1rem;
+}
+.star { color: var(--color-gold); font-size: 13px; }
+.testi-text {
+  font-size: 0.88rem;
+  color: var(--color-text);
+  line-height: 1.8;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+.testi-author {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  border-top: 1px solid var(--color-cream-dark);
+  padding-top: 1rem;
+}
+.testi-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-primary);
+}
+.testi-name { font-size: 0.82rem; font-weight: 500; color: var(--color-dark); }
+.testi-city { font-size: 0.7rem; color: var(--color-muted); }
+
+/* ============================================================
+   CTA BANNER
+   ============================================================ */
+.cta-banner {
+  padding: 5rem 0;
+  background: var(--color-primary);
+  position: relative;
+  overflow: hidden;
+}
+.cta-banner::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+}
+.cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.cta-inner h2 {
+  font-size: clamp(1.6rem,3vw,2.4rem);
+  color: var(--color-white);
+  max-width: 480px;
+}
+.cta-inner h2 em { font-style: italic; opacity: 0.75; }
+.btn-white {
+  background: var(--color-white);
+  color: var(--color-primary);
+  padding: 1rem 2.5rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: opacity 0.2s, transform 0.15s;
+  flex-shrink: 0;
+  display: inline-block;
+}
+.btn-white:hover { opacity: 0.9; transform: translateY(-1px); }
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact {
+  padding: 7rem 0;
+  background: var(--color-white);
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 6rem;
+  align-items: start;
+}
+.contact-info h2 { font-size: clamp(1.8rem,2.5vw,2.4rem); color: var(--color-dark); margin-bottom: 1rem; }
+.contact-info p { font-size: 0.9rem; color: var(--color-muted); line-height: 1.8; margin-bottom: 2rem; }
+.contact-details { display: flex; flex-direction: column; gap: 1rem; }
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  font-size: 0.88rem;
+  color: var(--color-text);
+}
+.contact-icon {
+  width: 38px;
+  height: 38px;
+  background: var(--color-cream);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 16px;
+}
+.contact-item strong { display: block; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-muted); margin-bottom: 2px; }
+.contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-field { display: flex; flex-direction: column; gap: 0.4rem; }
+.form-label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+.form-input, .form-select, .form-textarea {
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--color-cream-dark);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--color-text);
+  background: var(--color-cream);
+  transition: border-color 0.2s;
+  outline: none;
+  width: 100%;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--color-primary); background: var(--color-white); }
+.form-textarea { resize: vertical; min-height: 120px; }
+.form-submit {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  padding: 1rem 2.5rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.2s;
+  align-self: flex-start;
+}
+.form-submit:hover { background: var(--color-primary-dark); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  background: var(--color-dark);
+  padding: 4rem 0 2rem;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+.footer-brand .logo {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.8rem;
+}
+.footer-brand .logo span { color: var(--color-white); }
+.footer-tagline {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.35);
+  line-height: 1.7;
+  max-width: 230px;
+}
+.footer-col h4 {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 1.2rem;
+}
+.footer-col ul { display: flex; flex-direction: column; gap: 0.6rem; }
+.footer-col ul li a {
+  font-size: 0.84rem;
+  color: rgba(255,255,255,0.55);
+  transition: color 0.2s;
+}
+.footer-col ul li a:hover { color: var(--color-white); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-bottom p { font-size: 0.74rem; color: rgba(255,255,255,0.25); }
+.footer-social { display: flex; gap: 1rem; }
+.social-btn {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  transition: all 0.2s;
+}
+.social-btn:hover { border-color: var(--color-primary); color: var(--color-white); background: var(--color-primary); }
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 960px) {
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-right { min-height: 320px; }
+  .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about-img { display: none; }
+  .services-grid, .plans-grid, .articles-grid, .testimonials-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .hero-left { padding: 4rem 2rem; }
+}
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .services-grid, .plans-grid, .articles-grid, .testimonials-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .cta-inner { flex-direction: column; }
+  .hero-stats { gap: 1.5rem; }
+  .hero-badge { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <!-- CUSTOMIZE: Change brand name below -->
+      <a href="#" class="nav-logo">Fizio<span>Shqip</span></a>
+
+      <ul class="nav-links">
+        <li><a href="#about">Rreth Meje</a></li>
+        <li><a href="#services">Shërbimet</a></li>
+        <li><a href="#programs">Programet</a></li>
+        <li><a href="#advice">Këshilla</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+        <li><a href="#contact" class="nav-cta">Rezervo Takim</a></li>
+      </ul>
+
+      <div class="nav-hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-eagle">🦅</div>
+
+    <p class="hero-tag">Terapia Fizike Profesionale</p>
+
+    <!-- CUSTOMIZE: Main headline -->
+    <h1 class="hero-title">
+      Ktheje<br>Trupin Tënd
+      <em>Në Formë.</em>
+    </h1>
+
+    <!-- CUSTOMIZE: Short description -->
+    <p class="hero-desc">
+      Trajtime profesionale të personalizuara për rehabilitim, 
+      parandalim dhe mirëqenie të plotë. Shërbime të certifikuara 
+      në zemër të Shqipërisë.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Rezervo Takim</a>
+      <a href="#programs" class="btn-outline">Shiko Programet</a>
+    </div>
+
+    <div class="hero-stats">
+      <!-- CUSTOMIZE: Update numbers -->
+      <div>
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Pacientë</div>
+      </div>
+      <div>
+        <div class="stat-num">12</div>
+        <div class="stat-label">Vite Përvojë</div>
+      </div>
+      <div>
+        <div class="stat-num">98%</div>
+        <div class="stat-label">Kënaqësi</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <!-- CUSTOMIZE: Replace with <img src="your-photo.jpg" alt="Dr. Emri"> -->
+    <div class="hero-img-placeholder">
+      <div class="ph-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+        </svg>
+      </div>
+      <p>Vendos foton tënde këtu</p>
+    </div>
+
+    <div class="hero-badge">
+      <div class="badge-icon">🏅</div>
+      <div class="badge-text">
+        <strong>I Çertifikuar Ndërkombëtarisht</strong>
+        <span>World Physiotherapy Member</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     MARQUEE STRIP
+     ============================================================ -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <!-- Duplicated for infinite loop -->
+    <span>Rehabilitim Fizik</span>
+    <span>Terapi Manuele</span>
+    <span>Masazh Terapeutik</span>
+    <span>Kineziterapia</span>
+    <span>Ultrasonografia</span>
+    <span>Elektroterapia</span>
+    <span>Programet Online</span>
+    <span>Rehabilitim Fizik</span>
+    <span>Terapi Manuele</span>
+    <span>Masazh Terapeutik</span>
+    <span>Kineziterapia</span>
+    <span>Ultrasonografia</span>
+    <span>Elektroterapia</span>
+    <span>Programet Online</span>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     ABOUT
+     ============================================================ -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img">
+        <div class="about-img-main">
+          <!-- CUSTOMIZE: Replace with actual image -->
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+        </div>
+        <div class="about-accent-card">
+          <div class="big">12+</div>
+          <div class="small">Vite Klinikë</div>
+        </div>
+      </div>
+
+      <div class="about-content reveal">
+        <p class="section-label">Rreth Meje</p>
+        <!-- CUSTOMIZE: Your name and title -->
+        <h2 class="about-title">Ledina Miraka,<br>Fizioterapeut</h2>
+
+        <!-- CUSTOMIZE: Bio text -->
+        <p class="about-body">
+          Jam specialist i terapisë fizike me mbi 12 vite eksperiencë klinike 
+          në rehabilitimin muskuloskeletor, neurologjik dhe sportiv. Misioni im 
+          është t'ju ndihmoj të ktheheni tek jeta aktive me sa më pak dhimbje 
+          dhe sa më shumë siguri.
+        </p>
+        <p class="about-body">
+          Klinika jonë ofron trajtim të personalizuar duke kombinuar metodat 
+          bashkëkohore shkencore me kujdesin e vërtetë njerëzor — ashtu si 
+          e mëson tradita shqiptare e mikpritjes.
+        </p>
+
+        <!-- CUSTOMIZE: Credentials/qualifications -->
+        <div class="about-credentials">
+          <div class="cred-item"><div class="cred-dot"></div>Master i Shkencave në Fizioterapi — Universiteti i Tiranës</div>
+          <div class="cred-item"><div class="cred-dot"></div>Çertifikim në Terapi Manuele Ortopedike (OMT)</div>
+          <div class="cred-item"><div class="cred-dot"></div>Anëtar i Shoqatës Shqiptare të Fizioterapistëve</div>
+          <div class="cred-item"><div class="cred-dot"></div>Trajnim i avancuar në Rehabilitim Sportiv — Vjenë 2019</div>
+        </div>
+
+        <a href="#contact" class="btn-primary" style="margin-top:1rem;">Na Kontaktoni</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SERVICES
+     ============================================================ -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-header reveal">
+      <p class="section-label">Çfarë Ofrojmë</p>
+      <h2 class="services-title">Shërbimet Tona</h2>
+    </div>
+
+    <div class="services-grid">
+      <!-- CUSTOMIZE: Add/remove service cards as needed -->
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">🦴</div>
+        <div class="service-name">Rehabilitim Ortopedik</div>
+        <p class="service-desc">Trajtim i çrregullimeve të kyçeve, muskujve dhe indit lidhor pas operacionit apo traumës.</p>
+        <div class="service-price">nga 2,500 ALL / seancë</div>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">⚡</div>
+        <div class="service-name">Elektroterapia</div>
+        <p class="service-desc">Terapia me rrymë elektrike për lehtësim të dhimbjes dhe rikuperim të shpejtë të muskujve.</p>
+        <div class="service-price">nga 1,800 ALL / seancë</div>
+      </div>
+
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon">🤲</div>
+        <div class="service-name">Terapi Manuele</div>
+        <p class="service-desc">Teknika me duar për mobilizim të vertebrave, kyçeve dhe indit të butë sipas standardeve OMT.</p>
+        <div class="service-price">nga 3,000 ALL / seancë</div>
+      </div>
+
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">🏃</div>
+        <div class="service-name">Rehabilitim Sportiv</div>
+        <p class="service-desc">Program rikuperimi specifik për sportistë pas lëndimit, deri në kthimin e plotë në aktivitet.</p>
+        <div class="service-price">nga 3,500 ALL / seancë</div>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">🧠</div>
+        <div class="service-name">Fizioterapi Neurologjike</div>
+        <p class="service-desc">Rehabilitim i specializuar për pacientët me aksidente vaskulare cerebrale, Parkinson dhe sëmundje tjera neurologjike.</p>
+        <div class="service-price">nga 2,800 ALL / seancë</div>
+      </div>
+
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon">💻</div>
+        <div class="service-name">Konsultime Online</div>
+        <p class="service-desc">Vlerësim dhe plan trajtimi nga komodja e shtëpisë suaj, me mbështetje të vazhdueshme video.</p>
+        <div class="service-price">nga 1,500 ALL / seancë</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PROGRAMS / SUBSCRIPTIONS
+     ============================================================ -->
+<section class="programs" id="programs">
+  <div class="container">
+    <div class="programs-header reveal">
+      <p class="section-label">Abonimi</p>
+      <h2>Zgjedh Programin Tënd</h2>
+      <p>Plane fleksibël të dizenjuara për çdo nevojë dhe buxhet</p>
+    </div>
+
+    <div class="plans-grid">
+      <!-- PLAN 1 -->
+      <div class="plan-card reveal reveal-delay-1">
+        <div class="plan-name">Bazë</div>
+        <div class="plan-desc">Ideal për fillim dhe parandalim</div>
+        <div class="plan-price">
+          <span class="currency">ALL</span>
+          <span class="amount">4,500</span>
+          <span class="period">/muaj</span>
+        </div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li><div class="feat-check">✓</div>2 seanca në muaj</li>
+          <li><div class="feat-check">✓</div>Vlerësim i parë falas</li>
+          <li><div class="feat-check">✓</div>Plan ushtrimesh personal</li>
+          <li><div class="feat-check">✓</div>Mbështetje WhatsApp</li>
+          <li><div class="feat-check">✓</div>Video ushtrimesh hyrëse</li>
+        </ul>
+        <a href="#contact" class="plan-btn">Filloj Tani</a>
+      </div>
+
+      <!-- PLAN 2 — FEATURED -->
+      <div class="plan-card featured reveal reveal-delay-2">
+        <div class="plan-badge">Më Popullori</div>
+        <div class="plan-name">Pro</div>
+        <div class="plan-desc">Për rehabilitim intensiv dhe sportet</div>
+        <div class="plan-price">
+          <span class="currency">ALL</span>
+          <span class="amount">9,800</span>
+          <span class="period">/muaj</span>
+        </div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li><div class="feat-check">✓</div>5 seanca në muaj</li>
+          <li><div class="feat-check">✓</div>Vlerësim i plotë biomekanik</li>
+          <li><div class="feat-check">✓</div>Plan i personalizuar javor</li>
+          <li><div class="feat-check">✓</div>Mbështetje prioritare 7/7</li>
+          <li><div class="feat-check">✓</div>Akses në bibliotekën e video</li>
+          <li><div class="feat-check">✓</div>Raport progres çdo 2 javë</li>
+        </ul>
+        <a href="#contact" class="plan-btn">Filloj Tani</a>
+      </div>
+
+      <!-- PLAN 3 -->
+      <div class="plan-card reveal reveal-delay-3">
+        <div class="plan-name">Premium</div>
+        <div class="plan-desc">Shërbim i plotë VIP në shtëpinë tuaj</div>
+        <div class="plan-price">
+          <span class="currency">ALL</span>
+          <span class="amount">18,000</span>
+          <span class="period">/muaj</span>
+        </div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li><div class="feat-check">✓</div>10 seanca (klinikë ose shtëpi)</div></li>
+          <li><div class="feat-check">✓</div>Vlerësim i plotë + ekografi</li>
+          <li><div class="feat-check">✓</div>Konsultim i vazhdueshëm direkt</li>
+          <li><div class="feat-check">✓</div>Program ushqimor + stërvitor</li>
+          <li><div class="feat-check">✓</div>Seanca relaksuese masazhi</li>
+          <li><div class="feat-check">✓</div>Raport mjekësor i plotë</li>
+        </ul>
+        <a href="#contact" class="plan-btn">Filloj Tani</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ADVICE / BLOG
+     ============================================================ -->
+<section class="advice" id="advice">
+  <div class="container">
+    <div class="advice-header reveal">
+      <div>
+        <p class="section-label">Këshilla & Artikuj</p>
+        <h2>Dijeni Vlen Më Shumë<br>se Çdo Ilaç</h2>
+      </div>
+      <a href="#" class="view-all-link">Shiko Të Gjitha →</a>
+    </div>
+
+    <div class="articles-grid">
+      <!-- CUSTOMIZE: Replace with real articles/blog posts -->
+      <div class="article-card reveal reveal-delay-1">
+        <div class="article-thumb red-bg">
+          <span class="article-category">Shpinë</span>
+          <!-- CUSTOMIZE: Replace with article image -->
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.3">
+            <path d="M12 2L12 22M8 6C8 6 4 8 4 12C4 16 8 18 8 18M16 6C16 6 20 8 20 12C20 16 16 18 16 18"/>
+          </svg>
+        </div>
+        <div class="article-body">
+          <div class="article-title">5 Ushtrime për Dhimbjen e Shpinës në Shtëpi</div>
+          <p class="article-excerpt">Dhimbja e shpinës prek mbi 80% të shqiptarëve në moshë aktive. Ja se si mund ta lehtësoni vetë...</p>
+          <div class="article-meta">
+            <span>15 Prill, 2025</span>
+            <span>5 min lexim</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="article-card reveal reveal-delay-2">
+        <div class="article-thumb gold-bg">
+          <span class="article-category">Gjuri</span>
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.3">
+            <circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 3"/>
+          </svg>
+        </div>
+        <div class="article-body">
+          <div class="article-title">Si të Kthehesh Pas Operacionit të Gjurit</div>
+          <p class="article-excerpt">Rikuperimi pas ndërhyrjes kirurgjikale nuk është i njëjtë për të gjithë. Protokolli i saktë bën ndryshimin...</p>
+          <div class="article-meta">
+            <span>3 Mars, 2025</span>
+            <span>7 min lexim</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="article-card reveal reveal-delay-3">
+        <div class="article-thumb">
+          <span class="article-category">Posturë</span>
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.3">
+            <path d="M12 2v20M4 12h16"/>
+          </svg>
+        </div>
+        <div class="article-body">
+          <div class="article-title">Pozicioni i Duhur Para Kompjuterit — Udhëzues i Plotë</div>
+          <p class="article-excerpt">Orët e gjata para ekranit shkatërrojnë qafën dhe shpinën. Kjo është mënyra e vetme e saktë për të ulur...</p>
+          <div class="article-meta">
+            <span>20 Shkurt, 2025</span>
+            <span>4 min lexim</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     TESTIMONIALS
+     ============================================================ -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="testimonials-header reveal">
+      <p class="section-label">Dëshmi</p>
+      <h2>Çfarë Thonë Pacientët Tanë</h2>
+    </div>
+
+    <div class="testimonials-grid">
+      <!-- CUSTOMIZE: Replace with real testimonials -->
+      <div class="testi-card reveal reveal-delay-1">
+        <div class="testi-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="testi-text">"Pas lëndimit tim në gjur, kisha frikë se nuk do të mund të luaja futboll më. Pas 3 muaj trajtimi, jam kthyer plotësisht në fushë. Faleminderit shumë!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">AL</div>
+          <div>
+            <div class="testi-name">Artan Lleshi</div>
+            <div class="testi-city">Tiranë</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal reveal-delay-2">
+        <div class="testi-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="testi-text">"Kisha 2 vjet dhimbje në shpinë. Mjekët ndryshonin ilaçe, por askush nuk e trajtoi shkakun. Këtu me u bë analiza e duhur dhe sot ndihem dukshëm mirë."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">EH</div>
+          <div>
+            <div class="testi-name">Elona Hoxha</div>
+            <div class="testi-city">Durrës</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal reveal-delay-3">
+        <div class="testi-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="testi-text">"Programi online ishte i jashtëzakonshëm. Edhe nga Shkodra mund të ndiqja sesionet live dhe të merrja mbështetje çdo ditë. Shumë profesional dhe i dedikuar."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">BM</div>
+          <div>
+            <div class="testi-name">Besnik Mema</div>
+            <div class="testi-city">Shkodër</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CTA BANNER
+     ============================================================ -->
+<section class="cta-banner">
+  <div class="container">
+    <div class="cta-inner">
+      <!-- CUSTOMIZE: Tagline -->
+      <h2>Hapi i Parë Drejt<br><em>Shëndetit Fillon Sot.</em></h2>
+      <a href="#contact" class="btn-white">Rezervo Konsultimin e Parë Falas</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CONTACT / BOOKING
+     ============================================================ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <p class="section-label">Na Kontaktoni</p>
+        <h2>Rezervo Takimin Tënd</h2>
+        <p>Takimi i parë konsultues është falas. Ju vlerësohet gjendja dhe propozohet plani i trajtimit të personalizuar.</p>
+
+        <div class="contact-details">
+          <!-- CUSTOMIZE: Your real contact details -->
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <strong>Adresa</strong>
+              Rruga e Durrësit, Nd. 24, Ap. 2, Tiranë
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <strong>Telefon / WhatsApp</strong>
+              +355 69 XXX XXXX
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <strong>Email</strong>
+              info@fizioterapeut.al
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🕐</div>
+            <div>
+              <strong>Orari i Punës</strong>
+              E Hënë–E Shtunë: 8:00 – 19:00
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2">
+        <form class="contact-form" onsubmit="handleForm(event)">
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label">Emri</label>
+              <input type="text" class="form-input" placeholder="Emri juaj" required>
+            </div>
+            <div class="form-field">
+              <label class="form-label">Telefon</label>
+              <input type="tel" class="form-input" placeholder="+355 6X XXX XXXX">
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" placeholder="email@juaj.al">
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">Shërbimi i Kërkuar</label>
+            <select class="form-select">
+              <option value="">— Zgjidhni shërbimin —</option>
+              <option>Rehabilitim Ortopedik</option>
+              <option>Elektroterapia</option>
+              <option>Terapi Manuele</option>
+              <option>Rehabilitim Sportiv</option>
+              <option>Fizioterapi Neurologjike</option>
+              <option>Konsultim Online</option>
+              <option>Nuk e di ende</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label">Mesazhi Juaj</label>
+            <textarea class="form-textarea" placeholder="Përshkruani shkurtimisht çfarë jeni duke ndjerë..."></textarea>
+          </div>
+
+          <button type="submit" class="form-submit" id="submit-btn">
+            Dërgoni Kërkesën
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <!-- CUSTOMIZE: Brand name -->
+        <div class="logo">Fizio<span>Shqip</span></div>
+        <p class="footer-tagline">
+          Klinikë e specializuar në fizioterapi dhe rehabilitim fizik, e dedikuar 
+          për shëndetin tuaj nga Shqipëria.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Shërbime</h4>
+        <ul>
+          <li><a href="#services">Rehabilitim Ortopedik</a></li>
+          <li><a href="#services">Terapi Manuele</a></li>
+          <li><a href="#services">Rehabilitim Sportiv</a></li>
+          <li><a href="#services">Fizioterapi Neurologjike</a></li>
+          <li><a href="#services">Konsultime Online</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Informacion</h4>
+        <ul>
+          <li><a href="#about">Rreth Meje</a></li>
+          <li><a href="#programs">Planet e Abonimit</a></li>
+          <li><a href="#advice">Këshilla Shëndetësore</a></li>
+          <li><a href="#testimonials">Dëshmi Pacientësh</a></li>
+          <li><a href="#contact">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Ligjore</h4>
+        <ul>
+          <li><a href="#">Politika e Privatësisë</a></li>
+          <li><a href="#">Kushtet e Shërbimit</a></li>
+          <li><a href="#">Të Drejtat e Pacientit</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <!-- CUSTOMIZE: Year and name -->
+      <p>© 2025 Alpha Fizio. Të gjitha të drejtat e rezervuara.</p>
+      <div class="footer-social">
+        <!-- CUSTOMIZE: Your social media links -->
+        <a href="#" class="social-btn" title="Instagram">in</a>
+        <a href="#" class="social-btn" title="Facebook">fb</a>
+        <a href="#" class="social-btn" title="TikTok">tk</a>
+        <a href="#" class="social-btn" title="YouTube">yt</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     SCRIPTS
+     ============================================================ -->
+<script>
+/* Scroll navbar */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+/* Reveal on scroll */
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+
+/* Mobile menu */
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.querySelector('.nav-links');
+hamburger.addEventListener('click', () => {
+  const open = navLinks.style.display === 'flex';
+  navLinks.style.display = open ? 'none' : 'flex';
+  navLinks.style.flexDirection = 'column';
+  navLinks.style.position = 'absolute';
+  navLinks.style.top = '68px';
+  navLinks.style.left = '0';
+  navLinks.style.right = '0';
+  navLinks.style.background = 'var(--color-cream)';
+  navLinks.style.padding = '1.5rem 2rem';
+  navLinks.style.borderBottom = '1px solid var(--color-cream-dark)';
+});
+
+/* Close mobile menu on link click */
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    if (window.innerWidth <= 640) {
+      navLinks.style.display = 'none';
+    }
+  });
+});
+
+/* Form submission */
+function handleForm(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submit-btn');
+  btn.textContent = 'Duke Dërguar...';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = '✓ Kërkesa u Dërgua!';
+    btn.style.background = '#2A7A4A';
+    // CUSTOMIZE: Add your real form submission logic here
+    // e.g. fetch('/api/contact', { method: 'POST', body: new FormData(e.target) })
+  }, 1200);
+}
+</script>
+
+</body>
+</html>
